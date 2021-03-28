@@ -1,0 +1,153 @@
+/* GERAL */
+body{
+    background: #2c1238!important;
+    font-family: 'Rubik', sans-serif;
+    background-size: cover;
+    height: 100vh;
+}
+
+/* BOTOES */
+.btn {
+    border-radius: 30px;
+    font-size: 16px;
+}
+.btn-jogo.btn-primary {
+    color: #fff;
+    background-color: #7C4992;
+    border-color: #7C4992;
+}
+.btn-jogo.btn-primary:hover {
+    color: #fff;
+    background-color: #62247C;
+    border-color: #62247C;
+}
+.btn-acao{
+    font-size: 60px;
+    border-radius: 100px;
+    width: 94px;
+    background-color: #fff;
+    border: 1px solid #fff;
+}
+.cura{
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+}
+
+/* INICIO */
+.inicio {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: #7C4992;
+}
+.bemVindo{
+    background-color: #fff;
+    padding: 60px;
+    border-radius: 8px;
+}
+
+/* CABEÇALHO */
+.cabecalho {
+    color: #fff;
+}
+
+/* BOX */
+.box{
+    padding: 20px 40px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.boxHistorico{
+    padding: 20px 14px;
+    background-color: #fff;
+    border-radius: 8px;
+    max-height: 612px;
+    overflow: overlay;
+}
+.item-box-center{
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.item-box-left{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+.box .info-placar{
+    display: flex;
+}
+
+/* ESPACOS */
+.pl-2{
+    padding-left: 20px;
+}
+
+/* FONTES */
+h3{
+    color:#7C4992;
+}
+
+/* BARRA */
+.barra{
+    width: 100%;
+    height: 16px;
+    border-radius: 10px;
+    background-color: #DBDBDB;
+}
+.progresso{
+    height: 16px;
+    border-radius: 10px;
+    background-color: #7C4992;
+}
+.progressoAlerta{
+    background-color: burlywood;
+    color: cornsilk;
+}
+.progressoAlertaFont{
+    color: burlywood;
+}
+
+.progressoArriscado{
+    background-color: lightcoral;
+}
+.progressoArriscadoFont{
+    color: lightcoral;
+}
+.porcentagem {
+    font-size: 24px;
+    font-weight: 600;
+}
+.infoNivelVida{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* HISTORICO */
+.historicoJogos ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+.historicoJogos ul li{
+    width: 46%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 1% 2%;
+}
+.astro{
+    background-color: #ccebf5;
+    font-size: 16px;
+    font-weight: 500;
+}
+.alien{
+    background-color: #cdf1cd;
+    font-size: 16px;
+    font-weight: 500;
+}

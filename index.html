@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo - Luta na galáxia</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <!--Javascript-->
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="inicio" v-if="jogar == false">
+            <div class="bemVindo">
+                <h1>Bem-vindo<span>&#9996;&#127996;</span></h1>
+                <h5 class="mb-5">Espero que você esteja preparado.</h5>
+                <h6>Como gostaria de ser chamado? </h6>
+                <form action="">
+                    <input type="text" style="width: 100%;" v-model="nomeAstronauta" placeholder="Pode me chamar de ...">
+                </form>
+                <button class="btn btn-jogo btn-primary mt-4" @click="comecar">Vamos jogar</button>
+            </div>
+        </div>
+        <div class="vamosJogar"  v-else>
+            <div class="cabecalho mt-5 mb-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-10">
+                            <h1>Vamos lá, {{nomeAstronauta}}</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae eleifend sapien,</p>
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-jogo btn-primary mt-4">Ver Regras do jogo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="game container">
+                <div class="row">
+                    <div class="informacoes col-4">
+                        <div class="row">
+                            <div class="col-md-12 mb-4">
+                                <div class="placar box">
+                                    <h3 class="mb-4">Participantes</h3>
+                                    <div class="info-placar">
+                                        <div class="col item-box-center">
+                                            <img src="img/01.jpg" alt="Imagem astronauta" class="mr-3" style="width: 60px;">
+                                            <h5 class="pl-2">{{vidaAstronauta}}</h5>
+                                        </div>
+                                        <div class="col item-box-center">
+                                            <span>X</span>
+                                        </div>
+                                        <div class="col item-box-center">
+                                            <img src="img/02.jpg" alt="Imagem astronauta" style="width: 60px;">
+                                            <h5 class="pl-2">{{vidaAlienigena}}</h5>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <div class="astronauta box">
+                                    <div class="item-box-left">
+                                        <img src="img/01.jpg" alt="Imagem astronauta" class="mr-3" style="width: 86px;">
+                                        <div class="pl-2">
+                                            <p>ASTRONAUTA</p>
+                                            <h2>{{nomeAstronauta}}</h2><span>
+                                        </div>
+                                    </div>
+                                    <div class="nivelVida mt-4">
+                                        <div class="infoNivelVida">
+                                            <p>NÍVEL DE VIDA</p>
+                                            <p class="porcentagem" :class="[vidaAstronauta <= 50 ? 'progressoAlertaFont' : '' , vidaAstronauta <= 14 ? 'progressoArriscadoFont' : '' ]">{{vidaAstronauta}}</p>
+                                        </div>
+                                        <div class="barra ">
+                                            <div class="progresso" 
+                                            :class="[vidaAstronauta <= 50 ? 'progressoAlerta' : '' , vidaAstronauta <= 14 ? 'progressoArriscado' : '']"
+                                            :style="{width: vidaAstronauta + `%`}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-4">
+                                <div class="alienigena box">
+                                    <div class="item-box-left">
+                                        <img src="img/02.jpg" alt="Imagem astronauta" class="mr-3" style="width: 86px;">
+                                        <div class="pl-2">
+                                            <p>ALIENÍGENA</p>
+                                            <h2>XPTO-21</h2>
+                                        </div>
+                                    </div>
+                                    <div class="nivelVida mt-4">
+                                        <div class="infoNivelVida">
+                                            <p>NÍVEL DE VIDA</p>
+                                            <p class="porcentagem" :class="[vidaAlienigena <= 50 ? 'progressoAlertaFont' : '' , vidaAlienigena <= 14 ? 'progressoArriscadoFont' : '' ]">{{vidaAlienigena}}</p>
+                                        </div>
+                                        <div class="barra ">
+                                            <div class="progresso" 
+                                            :class="[vidaAlienigena <= 50 ? 'progressoAlerta' : '' , vidaAlienigena <= 14 ? 'progressoArriscado' : '']"
+                                            :style="{width: vidaAlienigena + `%`}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="statusJogo col-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="vencedor box" v-if="vitoria">
+                                    <h3 class="mb-4">Vitória &#127881</h3>
+                                    <div v-if="vidaAstronauta > 0">
+                                        <h2>Astronauta {{nomeAstronauta}}, você venceu!</h2>
+                                    </div>
+                                    <div v-else-if="vidaAlienigena > 0">
+                                        <h2>Alienigena, você venceu!</h2>
+                                    </div>
+                                    <div v-else>
+                                        <h2>Astronauta {{nomeAstronauta}} e alienigena XPTO-21. MELHOREM!</h2>
+                                    </div>
+                                    <button class="btn btn-jogo btn-primary mt-4" @click="novamente">Jogar novamente</button>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12" v-if="logs.length" v-show="!vitoria">
+                                <div class="historicoJogos boxHistorico">
+                                    <ul>
+                                        <li v-for="log in logs" :class="log.nome">{{ log.texto }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="acontecimentos">
+                    <div class="vencedor"></div>
+                    <div class="Jogadas"></div>
+                </div>
+            </div>  
+            <div class="acoes container mt-5 pb-5" v-show="!vitoria">
+                <div class="row">
+                    <div class="col-5 desistir" @click="desistirJogo">
+                        <button class="btn-acao">&#128532</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="btn-acao" @click='ordemAtaque' style="margin-right: 70px;">&#128299</button>
+                        <button class="btn-acao " @click='ordemAtaque(true)'>&#128165</button>
+                    </div>
+                    <div class="col-3 cura" @click="ordemCura">
+                        <button class="btn-acao">&#128171</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+   
+
+    <script src="app.js"></script>
+</body>
+</html>
