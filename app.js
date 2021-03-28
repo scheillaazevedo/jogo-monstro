@@ -1,21 +1,3 @@
-// ETAPAS DE DESENVOLVIMENTO RECOMENDADAS:
-
-// 1- Crie primeiro toda a estutura (box)
-// 2- Guarde a nome do jogador e utilize sempre que necessário;
-// 3- A animação da barra de progresso. Ela deve apresentar 3 cores: barra = 100% ? roxo,  barra < 50 ? amarelo, barra < 15 ? vermelho. Também deve infomar a (%).
-// 4- Defina como entender o ganhador.
-// 5- Defina qual box será visivel conforme etapa do jogo
-// 6- Faça funcionar a mensagem do vencedor
-
-// 7- Crie uma função base: geradora de numeros aleatorios com min e max.
-// (a função Math.random gera valores entre 0 e 1)
-
-// 8- Crie uma função de ataque valida tanto para o especial setado como true,
-// quanto para o normal setado como false. 
-
-// 9- Crie a funcao de curar
-// 10- Faça o historico
-
 new Vue ({
     el: '#app',
     data: {
